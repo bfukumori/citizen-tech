@@ -1,0 +1,34 @@
+================================================================================
+FIAP GRADUAÇÃO — GLOBAL SOLUTION 2026/2 · CITIZENTECH
+ENTREGA FINAL: SOLUÇÃO INTELIGENTE + VÍDEO PITCH (TURMA 4ESOA)
+================================================================================
+
+1. IDENTIFICAÇÃO DO GRUPO E PROJETO
+--------------------------------------------------------------------------------
+Nome do Projeto: Zeladoria Aberta — CitizenTech com Google Gemini AI
+Curso: Engenharia de Software ON
+Turma: 4ESOA
+Ano: 4º Ano (2026/2)
+
+2. INTEGRANTES DO GRUPO
+--------------------------------------------------------------------------------
+- **Bruno Fukumori** - RM 99486
+- **Victor Jaber** - RM 550173
+- **Bruno Andrade Lima de Araújo** - RM 550817
+- **Bruno Perdigão Santos** - RM 98681
+- **Vinicius Messias dos Santos** - RM 550463
+
+3. LINK PÚBLICO DO VÍDEO PITCH
+--------------------------------------------------------------------------------
+Link do Vídeo Pitch: https://youtu.be/uGmxlW46e30
+
+4. ESTRUTURA DO PROJETO ENTREGUE NO ARQUIVO .ZIP
+--------------------------------------------------------------------------------
+- README.md: Documentação completa de execução, tecnologias e declaração de IA.
+- docs/RELATORIO_TECNICO_GLOBAL_SOLUTION.md: Markdown consolidado com os entregáveis das 4 áreas.
+- src/: Código-fonte completo com 5 telas funcionais em Next.js 16, TypeScript e Tailwind v4.
+- iot/: Código-fonte em C++ para Arduino/ESP32 e guia esquemático para o Autodesk TinkerCad.
+- tests/: Suíte de testes automatizados com 6 casos cobrindo schemas, IA, IoT e Big Data.
+- Dockerfile & docker-compose.yml: Configuração completa de DevOps e conteinerização.
+- .github/workflows/ci.yml: Pipeline de integração contínua (CI/CD) com GitHub Actions.
+================================================================================
