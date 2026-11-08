@@ -25,6 +25,13 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
+# Garante pasta public mesmo se não houver assets estáticos
+RUN mkdir -p public
+
+# Inicializa o banco de dados e semente para garantir build estático e healthcheck 200
+RUN pnpm run db:push
+RUN pnpm run db:seed
+
 RUN pnpm run build
 
 # Estágio 3: Runner de Produção (Imagem Mínima e Segura)
@@ -40,11 +47,14 @@ ENV HOSTNAME="0.0.0.0"
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/dev.db* ./
+# Prepara diretório com permissão para o usuário não-root gravar no SQLite
+RUN mkdir -p /app/public /app/data && chown -R nextjs:nodejs /app
+
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
+COPY --from=builder --chown=nextjs:nodejs /app/dev.db* ./
 
 USER nextjs
 
