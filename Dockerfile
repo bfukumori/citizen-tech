@@ -11,7 +11,7 @@ WORKDIR /app
 RUN apk add --no-cache libc6-compat
 RUN npm install -g pnpm
 
-COPY package.json pnpm-lock.yaml* ./
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* .npmrc* ./
 RUN pnpm install --frozen-lockfile
 
 # Estágio 2: Build da aplicação
